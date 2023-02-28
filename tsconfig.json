@@ -1,0 +1,9 @@
+{
+    "extends": "@pixi/extension-scripts/lib/configs/tsconfig.json",
+    "compilerOptions": {
+        "esModuleInterop": true
+    },
+    "include": [
+        "src/**/*"
+    ]
+}

@@ -1,0 +1,35 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ '**' ]
+  release:
+    types: [ published ]
+  pull_request:
+    branches: [ '**' ]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Install Canvas Dependencies
+      run: sudo apt-get -o Acquire::Retries=3 install build-essential libcairo2-dev libgif-dev libjpeg-dev libpango1.0-dev librsvg2-dev xvfb
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+        registry-url: 'https://registry.npmjs.org'
+    - name: Install npm
+      run: npm install -g npm@8
+    - name: Install Dependencies
+      run: npm ci
+    - name: Build
+      run: npm run build
+    - name: Validate Build
+      run: xvfb-run --auto-servernum npm run validate
+    - name: Run Unit Tests for @pixi/node
+      run: xvfb-run --auto-servernum npm run coverage
+      env:
+        NODE_ENV: production
