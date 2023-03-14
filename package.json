@@ -1,6 +1,6 @@
 {
   "name": "@pixi/node",
-  "version": "7.1.3",
+  "version": "7.2.0",
   "description": "Bundle for PixiJS with support for NodeJS",
   "homepage": "http://pixijs.com/",
   "bugs": "https://github.com/pixijs/node/issues",
@@ -40,7 +40,9 @@
   },
   "extensionConfig": {
     "jestConfig": "jest.config.mjs",
-    "environments": ["node"]
+    "environments": [
+      "node"
+    ]
   },
   "devDependencies": {
     "@pixi/extension-scripts": "^1.8.0"
