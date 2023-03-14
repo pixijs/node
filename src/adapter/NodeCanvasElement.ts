@@ -21,7 +21,6 @@ type ParametersExceptFirst<T extends (...args: any) => any> = T extends (arg0: a
  * Uses node-canvas and gl packages to provide the same
  * functionality as a normal HTMLCanvasElement.
  * @class
- * @memberof PIXI
  */
 export class NodeCanvasElement implements ICanvas
 {

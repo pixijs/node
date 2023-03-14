@@ -6,7 +6,6 @@ import type { BaseTexture, GLTexture, Renderer } from '@pixi/core';
 /**
  * A canvas resource using node-canvas
  * used for images, svg, and bitmap text
- * @memberof PIXI
  */
 export class NodeCanvasResource extends Resource
 {

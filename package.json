@@ -28,6 +28,7 @@
   },
   "scripts": {
     "build": "xs build",
+    "docs": "xs docs",
     "release": "xs release",
     "watch": "xs watch",
     "lint": "xs lint",
