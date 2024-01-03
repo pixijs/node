@@ -2,7 +2,7 @@ import canvasModule from 'canvas';
 import { getFontFamilyName } from '@pixi/assets';
 import { extensions, ExtensionType, utils } from '@pixi/core';
 
-import type { LoadAsset, LoaderParser, LoadFontData } from '@pixi/assets';
+import type { LoaderParser, LoadFontData, ResolvedAsset } from '@pixi/assets';
 
 const { registerFont } = canvasModule;
 const validWeights = [
@@ -19,7 +19,7 @@ export const loadNodeFont = {
         return validFonts.includes(utils.path.extname(url).toLowerCase());
     },
 
-    async load(url: string, options: LoadAsset<LoadFontData>): Promise<void>
+    async load(url: string, options: ResolvedAsset<LoadFontData>): Promise<void>
     {
         const name = options.data?.family ?? getFontFamilyName(url);
         const weights = options.data?.weights?.filter((weight) => validWeights.includes(weight)) ?? ['normal'];

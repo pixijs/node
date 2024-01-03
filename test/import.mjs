@@ -1,4 +1,4 @@
-import { Renderer, Container } from '@pixi/node';
+import { Container, Renderer } from '@pixi/node';
 
 const stage = new Container();
 const renderer = new Renderer();
