@@ -22,6 +22,8 @@ function isSupportedDataURL(url: string): boolean
 export const loadNodeBase64 = {
     extension: ExtensionType.LoadParser,
 
+    name: 'loadNodeBase64',
+
     test(url: string): boolean
     {
         return isSupportedDataURL(url);
