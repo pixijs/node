@@ -1,5 +1,5 @@
 import { ResizePlugin } from '@pixi/app';
-import { loadTextures, loadWebFont } from '@pixi/assets';
+import { detectMp4, detectOgv, detectWebm, loadTextures, loadWebFont } from '@pixi/assets';
 import { extensions, INSTALLED } from '@pixi/core';
 import '@pixi/mixin-cache-as-bitmap';
 import '@pixi/mixin-get-child-by-name';
@@ -8,6 +8,9 @@ import { NodeCanvasResource } from './adapter';
 
 // Remove the default loader plugins
 extensions.remove(
+    detectMp4,
+    detectOgv,
+    detectWebm,
     loadTextures,
     loadWebFont,
     ResizePlugin

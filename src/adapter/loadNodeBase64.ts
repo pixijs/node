@@ -1,8 +1,8 @@
 import canvasModule from 'canvas';
-import { extensions, ExtensionType, Texture, utils } from '@pixi/core';
+import { extensions, ExtensionType, Texture, TextureSource, utils } from '@pixi/core';
 import { NodeCanvasElement } from './NodeCanvasElement';
 
-import type { LoadAsset, LoaderParser } from '@pixi/assets';
+import type { LoaderParser, ResolvedAsset } from '@pixi/assets';
 
 const { loadImage } = canvasModule;
 const validMimes = ['image/png', 'image/jpg', 'image/jpeg', 'image/svg'];
@@ -27,14 +27,14 @@ export const loadNodeBase64 = {
         return isSupportedDataURL(url);
     },
 
-    async load(url: string, asset: LoadAsset): Promise<Texture>
+    async load(url: string, asset: ResolvedAsset): Promise<Texture>
     {
         const image = await loadImage(url);
         const canvas = new NodeCanvasElement(image.width, image.height);
         const ctx = canvas.getContext('2d');
 
         ctx?.drawImage(image as unknown as CanvasImageSource, 0, 0);
-        const texture = Texture.from(canvas, {
+        const texture = Texture.from(canvas as unknown as TextureSource, {
             resolution: utils.getResolutionOfUrl(url),
             ...asset.data
         });

@@ -202,9 +202,9 @@ export class NodeCanvasElement implements ICanvas
      * @param type - The type of event to listen for.
      * @param listener - The callback to invoke when the event is fired.
      */
-    addEventListener(type: string, listener: (...args: any[]) => void)
+    addEventListener(type: string, listener: EventListenerOrEventListenerObject)
     {
-        return this._event.addListener(type, listener);
+        return this._event.addListener(type, listener as any);
     }
 
     /**
@@ -212,11 +212,11 @@ export class NodeCanvasElement implements ICanvas
      * @param type - The type of event to listen for.
      * @param listener - The callback to invoke when the event is fired.
      */
-    removeEventListener(type: string, listener: (...args: any[]) => void)
+    removeEventListener(type: string, listener: EventListenerOrEventListenerObject)
     {
         if (listener)
         {
-            return this._event.removeListener(type, listener);
+            return this._event.removeListener(type, listener as any);
         }
 
         return this._event.removeAllListeners(type);
