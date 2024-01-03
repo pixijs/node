@@ -1,6 +1,6 @@
 {
   "name": "@pixi/node",
-  "version": "7.2.0",
+  "version": "7.3.0",
   "description": "Bundle for PixiJS with support for NodeJS",
   "homepage": "http://pixijs.com/",
   "bugs": "https://github.com/pixijs/node/issues",
