@@ -11,6 +11,8 @@ const validImages = ['.jpg', '.png', '.jpeg', '.svg'];
 export const loadNodeTexture = {
     extension: ExtensionType.LoadParser,
 
+    name: 'loadNodeTexture',
+
     test(url: string): boolean
     {
         return validImages.includes(utils.path.extname(url).toLowerCase());
