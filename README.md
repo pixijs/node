@@ -89,14 +89,13 @@ app.ticker.add(() => {
 
 // extract and save the stage
 app.renderer.render(app.stage);
-const base64Image = app.renderer.extract
-    .canvas(app.stage)
-    .toDataURL('image/png');
-
+const base64Image = app.renderer.view.toDataURL('image/png');
 const base64Data = base64Image.replace(/^data:image\/png;base64,/, '');
 const output = `./test.png`;
 
 writeFileSync(output, base64Data, 'base64');
+
+process.exit(0);
 ```
 
 ## Full environment setup with Docker 🐳
